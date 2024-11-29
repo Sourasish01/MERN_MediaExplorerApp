@@ -11,9 +11,13 @@ import { protectRoute } from "./middleware/protectRoute.js";
 //movie,tv show
 import { fetchFromTMDB } from "./services/tmdb.service.js";
 
+import path from "path";
+
 
 
 const PORT = ENV_VARS.PORT;
+const __dirname = path.resolve();
+
 
 const app = express();
 
@@ -427,6 +431,14 @@ app.get("/api/v1/search/history/:id", protectRoute, async (req, res) => { // rem
 	
 }); 
 
+
+if (ENV_VARS.NODE_ENV === "production") {
+	app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+	app.get("*", (req, res) => {
+		res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+	});
+}
 
 app.listen(PORT, () => { 
 	console.log("Server started at http://localhost:" + PORT);

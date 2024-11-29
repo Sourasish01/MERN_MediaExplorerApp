@@ -11,6 +11,8 @@ import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 import { useAuthStore } from "./store/authUser";
 import { Loader } from "lucide-react";
+import NotFoundPage from "./pages/404";
+
 
 function App() {
 
@@ -40,6 +42,7 @@ function App() {
         <Route path='/watch/:id' element={user ? <WatchPage /> : <Navigate to={"/login"} />} />
         <Route path='/search' element={user ? <SearchPage /> : <Navigate to={"/login"} />} />
         <Route path='/history' element={user ? <SearchHistoryPage /> : <Navigate to={"/login"} />} />
+        <Route path='/*' element={<NotFoundPage />} />
       </Routes>
       <Footer /> {/*Footer component is rendered on every page , therefore put ouside Routes*/}
 
