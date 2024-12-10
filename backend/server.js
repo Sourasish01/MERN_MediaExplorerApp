@@ -408,9 +408,9 @@ app.get("/api/v1/search/history", protectRoute, async (req, res) => { //fetch al
 		res.status(500).json({ success: false, message: "Internal Server Error" });
 	}
 	
-}); 
+});  
 
-app.get("/api/v1/search/history/:id", protectRoute, async (req, res) => { // remove an item from all the search history of the user from the database, with specific id
+app.delete("/api/v1/search/history/:id", protectRoute, async (req, res) => { // remove an item from all the search history of the user from the database, with specific id
 
 	let { id } = req.params;
 
