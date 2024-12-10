@@ -18,7 +18,7 @@ const Navbar = () => {
       {/* Logo and Desktop Links */}
       <div className="flex items-center gap-12 z-50">
         <Link to="/">
-          <img src="/netflix-logo.png" alt="Netflix Logo" className="w-32 sm:w-40" />
+          <img src="/mediaflix-logo.png" alt="Netflix Logo" className="w-32 sm:w-40" />
         </Link>
 
         {/* Desktop Navbar Items */}
